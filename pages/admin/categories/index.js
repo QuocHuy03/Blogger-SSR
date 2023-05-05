@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import slugName from "url-slug";
 
 export default function index() {
@@ -101,11 +101,29 @@ export default function index() {
     }
   }
 
-  function handleEdit(category) {
+  function handleEdit(category, _id) {
     setName(category.name);
     set_id(category._id);
     setEditingCategory(category);
     inputRef.current.focus();
+  }
+
+  function handleDelete(category, _id) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to delete [${category.name}]?`,
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      confirmButtonText: "Yes, Delete!",
+      confirmButtonColor: "#d55",
+      reverseButtons: true,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { _id } = category;
+        await axios.delete("/api/categories?_id=" + _id);
+        fetchCategories();
+      }
+    });
   }
 
   return (
@@ -117,7 +135,7 @@ export default function index() {
               className="block text-gray-700 font-medium mb-2 w-full"
               htmlFor="name"
             >
-             Name Category
+              Name Category
             </label>
             <input
               type="text"
@@ -142,7 +160,7 @@ export default function index() {
               className="block text-gray-700 font-medium mb-2 w-full"
               htmlFor="name"
             >
-                 {editingCategory
+              {editingCategory
                 ? `Edit Category [ ${editingCategory.name} ]`
                 : "Name Category"}
             </label>
@@ -163,7 +181,7 @@ export default function index() {
           </button>
         </form>
       )}
-      <table className="min-w-full divide-y divide-gray-200 mt-5">
+      <table id="example" className="min-w-full divide-y divide-gray-200 mt-5">
         <thead className="bg-gray-50">
           <tr>
             <th
@@ -204,13 +222,13 @@ export default function index() {
                     Edit
                   </button>
                   <span className="px-2">|</span>
-                  <Link
+                  <button
                     href={"/"}
                     className="text-red-600 hover:text-red-900"
-                    // onClick={() => handleDelete(cate._id)}
+                    onClick={() => handleDelete(cate, _id)}
                   >
                     Delete
-                  </Link>
+                  </button>
                 </td>
               </tr>
             ))}

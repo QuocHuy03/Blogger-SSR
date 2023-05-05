@@ -22,35 +22,24 @@ const SideBar = () => {
       src: <AiFillPieChart />,
     },
     {
-      title: "Add Product",
+      title: "Add Posts",
       path: "/admin/add-product",
       href: "/admin/add-product",
       src: <SiFuturelearn />,
     },
+    // {
+    //   title: "List Product",
+    //   path: "/admin/list-product",
+    //   href: "/admin/list-product",
+    //   src: <BiBasket />,
+    // },
     {
-      title: "List Product",
-      path: "/admin/list-product",
-      href: "/admin/list-product",
-      src: <BiBasket />,
-    },
-    {
-      title: "Add Category",
-      path: "/admin/add-category",
-      href: "/admin/add-category",
+      title: "Categories",
+      path: "/admin/categories",
+      href: "/admin/categories",
       src: <SiFuturelearn />,
     },
-    {
-      title: "List Category",
-      path: "/admin/list-category",
-      href: "/admin/list-category",
-      src: <BiBasket />,
-    },
-    {
-      title: "List Order",
-      path: "/admin/list-order",
-      href: "/admin/list-order",
-      src: <CgProfile />,
-    },
+
     {
       title: "Signin",
       path: "/login",
@@ -78,7 +67,7 @@ const SideBar = () => {
             <img src="" alt="" className="pl-2" />
             {open && (
               <span className="text-xl font-medium whitespace-nowrap dark:text-white">
-                Goal Quest
+                Admin Blogger
               </span>
             )}
           </div>
