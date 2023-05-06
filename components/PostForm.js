@@ -82,6 +82,7 @@ export default function PostForm({
           setCategory("");
           setDescription("");
         }
+        router.push("/admin/posts/Lists")
       } catch (error) {
         console.error(error);
       }
@@ -164,7 +165,7 @@ export default function PostForm({
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         type="submit"
       >
-        Thêm Bài Viết
+        {_id ? "Cập nhật bài viết" : "Thêm bài viết"}
       </button>
     </form>
   );

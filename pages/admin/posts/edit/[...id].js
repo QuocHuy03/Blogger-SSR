@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PostForm from "@/components/PostForm";
+import Spinner from "@/components/Spinner";
 
 export default function Edit() {
   const [blogInfo, setBlogInfo] = useState(null);
@@ -18,8 +19,14 @@ export default function Edit() {
   }, [id]);
   return (
     <Layout>
-      <h1>Edit product</h1>
-      {blogInfo && <PostForm {...blogInfo} />}
+      {blogInfo ? (
+        <>
+          <h1 className="font-medium">Edit Blog <b>[{blogInfo._id}]</b></h1>
+          <PostForm {...blogInfo} />
+        </>
+      ) : (
+        <Spinner />
+      )}
     </Layout>
   );
 }

@@ -21,12 +21,12 @@ const SideBar = () => {
       href: "/admin",
       src: <AiFillPieChart />,
     },
-    {
-      title: "Add Posts",
-      path: "/admin/posts/Add",
-      href: "/admin/posts/Add",
-      src: <IoMdAdd />,
-    },
+    // {
+    //   title: "Add Posts",
+    //   path: "/admin/posts/Add",
+    //   href: "/admin/posts/Add",
+    //   src: <IoMdAdd />,
+    // },
     {
       title: "List Posts",
       path: "/admin/posts/Lists",
