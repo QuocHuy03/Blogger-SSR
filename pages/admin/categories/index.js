@@ -181,7 +181,7 @@ export default function index() {
           </button>
         </form>
       )}
-      <table id="example" className="min-w-full divide-y divide-gray-200 mt-5">
+      <table className="min-w-full divide-y divide-gray-200 mt-5">
         <thead className="bg-gray-50">
           <tr>
             <th

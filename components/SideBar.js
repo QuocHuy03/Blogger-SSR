@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiFillPieChart } from "react-icons/ai";
-import { SiFuturelearn } from "react-icons/si";
 import { SiOpenaccess } from "react-icons/si";
-import { CgProfile } from "react-icons/cg";
-import { BiBasket } from "react-icons/bi";
+import { BiCategory } from "react-icons/bi";
+import { BiHistory } from "react-icons/bi";
+import { IoMdAdd } from "react-icons/io";
 import HamburgerButton from "./HamburgerMenuButton/HamburgerButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -23,21 +23,21 @@ const SideBar = () => {
     },
     {
       title: "Add Posts",
-      path: "/admin/add-product",
-      href: "/admin/add-product",
-      src: <SiFuturelearn />,
+      path: "/admin/posts/Add",
+      href: "/admin/posts/Add",
+      src: <IoMdAdd />,
     },
-    // {
-    //   title: "List Product",
-    //   path: "/admin/list-product",
-    //   href: "/admin/list-product",
-    //   src: <BiBasket />,
-    // },
+    {
+      title: "List Posts",
+      path: "/admin/posts/Lists",
+      href: "/admin/posts/Lists",
+      src: <BiHistory />,
+    },
     {
       title: "Categories",
       path: "/admin/categories",
       href: "/admin/categories",
-      src: <SiFuturelearn />,
+      src: <BiCategory />,
     },
 
     {
