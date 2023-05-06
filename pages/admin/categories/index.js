@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Admins/Layout";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -125,7 +125,16 @@ export default function index() {
       }
     });
   }
-
+  
+  const empty = () => {
+    return (
+      <tr className="text-center">
+        <td colSpan="5" className="px-6 py-4 whitespace-nowrap">
+          <span className="text-red-600">Không Có Dữ Liệu ...</span>
+        </td>
+      </tr>
+    );
+  };
   return (
     <Layout>
       {!editingCategory ? (
@@ -206,33 +215,37 @@ export default function index() {
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {categories &&
-            categories.map((cate, index) => (
-              <tr key={cate._id} className="text-center">
-                <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+        {categories.length !== 0 ? (
+          <tbody className="bg-white divide-y divide-gray-200">
+            {categories &&
+              categories.map((cate, index) => (
+                <tr key={cate._id} className="text-center">
+                  <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
 
-                <td className="px-6 py-4 whitespace-nowrap">{cate.name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{cate.name}</td>
 
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <button
-                    onClick={() => handleEdit(cate, _id)}
-                    className="text-indigo-600 hover:text-indigo-900"
-                  >
-                    Edit
-                  </button>
-                  <span className="px-2">|</span>
-                  <button
-                    href={"/"}
-                    className="text-red-600 hover:text-red-900"
-                    onClick={() => handleDelete(cate, _id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <button
+                      onClick={() => handleEdit(cate, _id)}
+                      className="text-indigo-600 hover:text-indigo-900"
+                    >
+                      Edit
+                    </button>
+                    <span className="px-2">|</span>
+                    <button
+                      href={"/"}
+                      className="text-red-600 hover:text-red-900"
+                      onClick={() => handleDelete(cate, _id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        ) : (
+          <tbody>{categories.length === 0 && empty()}</tbody>
+        )}
       </table>
     </Layout>
   );

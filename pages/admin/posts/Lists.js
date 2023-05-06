@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Admins/Layout";
 import axios from "axios";
 import Link from "next/link";
 import Swal from "sweetalert2";
