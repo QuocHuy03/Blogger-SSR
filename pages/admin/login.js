@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
 export default function Login() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,14 +26,15 @@ export default function Login() {
       .post(`/api/auth`, data)
       .then((huyit) => {
         if (huyit.data.status === true) {
-          console.log(huyit.data.accessToken);
           localStorage.setItem("accessToken", huyit.data.accessToken);
+          router.push("/admin");
         }
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
