@@ -4,8 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "@/styles/fonts.css";
 import ProgressBar from "@badrap/bar-of-progress";
-import { Router } from "next/router";
 import { useState, useEffect } from "react";
+import Router from "next/router";
+import jwt_decode from "jwt-decode";
+import { useRouter } from "next/router";
 
 const progress = new ProgressBar({
   size: 2,
@@ -15,6 +17,7 @@ const progress = new ProgressBar({
 });
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,6 +37,23 @@ export default function App({ Component, pageProps }) {
       Router.events.off("routeChangeComplete", finish);
       Router.events.off("routeChangeError", finish);
     };
+  }, []);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      router.push("/admin/login");
+    } else if (accessToken) {
+      try {
+        const decodedToken = jwt_decode(accessToken);
+        const { isAdmin } = decodedToken.user;
+        if (!isAdmin === "admin") {
+          router.push("/admin/login");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }, []);
 
   return (

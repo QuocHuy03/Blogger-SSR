@@ -25,6 +25,7 @@ export default async function handle(req, res) {
           user: {
             id: userLogin._id,
             username: userLogin.username,
+            isAdmin: userLogin.isAdmin,
           },
         };
 
