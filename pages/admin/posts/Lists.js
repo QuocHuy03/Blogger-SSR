@@ -1,4 +1,4 @@
-import Layout from "@/components/Admins/Layout";
+import Layout from "@/components/Layout";
 import axios from "axios";
 import Link from "next/link";
 import Swal from "sweetalert2";
@@ -74,7 +74,13 @@ export default function Lists() {
             >
               Publisher
             </th>
-
+            <th
+              scope="col"
+              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Category
+            </th>
+            
             <th
               scope="col"
               className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -100,6 +106,9 @@ export default function Lists() {
                   <td className="px-6 py-4 whitespace-nowrap">{blog.title}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {blog.publisher}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {blog.categoryName}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {new Date(blog.createdAt).toLocaleString()}

@@ -1,5 +1,6 @@
 import { mongooseConnect } from "@/config/mongoose";
 import { Blog } from "@/models/Blog";
+import { Category } from "@/models/Category";
 
 export default async function handle(req, res) {
   const { method } = req;
@@ -9,7 +10,16 @@ export default async function handle(req, res) {
     if (req.query?.id) {
       res.json(await Blog.findOne({ _id: req.query.id }));
     } else {
-      res.json(await Blog.find());
+      const blogs = await Blog.find();
+      const categoryOfblog = await Promise.all(
+        blogs.map(async (huydev) => {
+          const categories = await Category.findOne({
+            slug: huydev.category,
+          });
+          return { ...huydev._doc, categoryName: categories.name };
+        })
+      );
+      res.json(categoryOfblog);
     }
   }
 

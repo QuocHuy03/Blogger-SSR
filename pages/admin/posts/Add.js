@@ -1,5 +1,5 @@
-import Layout from "@/components/Admins/Layout";
-import PostForm from "@/components/Admins/PostForm";
+import Layout from "@/components/Layout";
+import PostForm from "@/components/PostForm";
 
 export default function Add() {
   return (

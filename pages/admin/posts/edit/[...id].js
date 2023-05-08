@@ -1,9 +1,9 @@
-import Layout from "@/components/Admins/Layout";
+import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PostForm from "@/components/Admins/PostForm";
-import Spinner from "@/components/Admins/Spinner";
+import PostForm from "@/components/PostForm";
+import Spinner from "@/components/Spinner";
 
 export default function Edit() {
   const [blogInfo, setBlogInfo] = useState(null);

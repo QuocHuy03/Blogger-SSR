@@ -141,7 +141,7 @@ export default function PostForm({
           {categories &&
             categories.map((cate, index) => {
               const isSelected = cate.slug === category;
-              console.log(isSelected);
+              // console.log(isSelected);
               return (
                 <option key={cate._id} value={cate.slug} selected={isSelected}>
                   {cate.name}

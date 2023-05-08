@@ -1,4 +1,4 @@
-import Layout from "@/components/Admins/Layout";
+import Layout from "@/components/Layout";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -125,7 +125,7 @@ export default function index() {
       }
     });
   }
-  
+
   const empty = () => {
     return (
       <tr className="text-center">
@@ -206,12 +206,18 @@ export default function index() {
             >
               Name
             </th>
+            <th
+              scope="col"
+              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Time
+            </th>
 
             <th
               scope="col"
               className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Actions
+              Action
             </th>
           </tr>
         </thead>
@@ -223,6 +229,9 @@ export default function index() {
                   <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
 
                   <td className="px-6 py-4 whitespace-nowrap">{cate.name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {new Date(cate.createdAt).toLocaleString()}
+                  </td>
 
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button

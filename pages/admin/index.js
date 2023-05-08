@@ -1,5 +1,5 @@
-import Background from "@/components/Admins/Background";
-import Layout from "@/components/Admins/Layout";
+import Background from "@/components/Background";
+import Layout from "@/components/Layout";
 
 export default function Admin() {
   return (
@@ -10,7 +10,11 @@ export default function Admin() {
             Hello, <b>Lê Quốc Huy</b>
           </h2>
           <div className="flex bg-gray-300 gap-1 text-black rounded-lg overflow-hidden">
-            <img src="https://i.imgur.com/bbnrc1T.png" alt="" className="w-6 h-6" />
+            <img
+              src="https://i.imgur.com/bbnrc1T.png"
+              alt=""
+              className="w-6 h-6"
+            />
             <span className="px-2">Admin</span>
           </div>
         </div>

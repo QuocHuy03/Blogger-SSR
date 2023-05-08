@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/components/Admins/ThemeContext";
+import { ThemeProvider } from "@/components/ThemeContext";
 import "@/styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
