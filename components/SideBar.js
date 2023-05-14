@@ -12,7 +12,10 @@ const SideBar = () => {
   const [open, setOpen] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useRouter();
-
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+  };
   const Menus = [
     {
       title: "Dashboard",
@@ -40,11 +43,12 @@ const SideBar = () => {
     },
 
     {
-      title: "Signin",
-      path: "/login",
-      href: "/login/",
+      title: "Logout",
+      path: "/admin/login",
+      href: "/admin/login",
       src: <SiOpenaccess />,
       gap: "true",
+      onClick: handleLogout,
     },
   ];
 
@@ -81,6 +85,7 @@ const SideBar = () => {
                   location.pathname === menu.path &&
                   "bg-gray-200 dark:bg-gray-700"
                 }`}
+                onClick={menu.onClick || (() => {})}
               >
                 <span className="text-2xl">{menu.src}</span>
                 <span
