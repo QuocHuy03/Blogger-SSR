@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const progress = new ProgressBar({
   size: 2,
@@ -17,6 +18,7 @@ const progress = new ProgressBar({
 });
 
 export default function App({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -57,12 +59,14 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <ThemeProvider initialTheme="light">
-      <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        {loading && <div className="loading-spinner"></div>}
-        <Component {...pageProps} />
-        <ToastContainer />
-      </div>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider initialTheme="light">
+        <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          {loading && <div className="loading-spinner"></div>}
+          <Component {...pageProps} />
+          <ToastContainer />
+        </div>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }

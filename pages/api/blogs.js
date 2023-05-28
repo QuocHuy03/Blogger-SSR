@@ -9,6 +9,8 @@ export default async function handle(req, res) {
   if (method === "GET") {
     if (req.query?.id) {
       res.json(await Blog.findOne({ _id: req.query.id }));
+    } else if (req.query?.slug) {
+      res.json(await Blog.findOne({ slug: req.query.slug }));
     } else {
       const blogs = await Blog.find();
       const categoryOfblog = await Promise.all(
