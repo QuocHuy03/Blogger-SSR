@@ -3,6 +3,7 @@ import Home from "..";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 export default function Blog() {
   const router = useRouter();
@@ -32,21 +33,29 @@ export default function Blog() {
           </p>
         </header>
 
-        <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
-          {data?.title}
-        </p>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
+              {data?.title}
+            </p>
 
-        <p className="my-1 text-sm font-bold text-orange-400 capitalize">
-          {data?.category}
-        </p>
+            <p className="my-1 text-sm font-bold text-orange-400 capitalize">
+              {data?.category}
+            </p>
 
-        <p className="text-sm font-medium capitalize">
-          {new Date(data?.createdAt).toLocaleString()} - {data?.publisher}
-        </p>
+            <p className="text-sm font-medium capitalize">
+              {new Date(data?.createdAt).toLocaleString()} - {data?.publisher}
+            </p>
 
-        <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
-          <span dangerouslySetInnerHTML={{ __html: data?.description }}></span>
-        </div>
+            <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+              <span
+                dangerouslySetInnerHTML={{ __html: data?.description }}
+              ></span>
+            </div>
+          </>
+        )}
       </article>
       <dl className="flex pt-6 mt-6 border-t border-slate-200">
         <div className="mr-auto text-left">
