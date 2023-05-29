@@ -6,7 +6,7 @@ export default function Home({ children }) {
   return (
     <>
       <Header />
-      <main className="relative flex justify-center mx-auto sm:px-2 bg-white">
+      <main className="relative flex justify-center mx-auto sm:px-2 bg-white max-w-8xl">
         <label
           htmlFor="navigation"
           className="fixed bottom-0 left-0 z-50 flex items-center justify-center w-12 h-12 mb-4 ml-4 bg-white border rounded-full shadow-lg cursor-pointer text-slate-600 border-slate-300 lg:hidden transition duration-200 ease-in-out active:scale-95"

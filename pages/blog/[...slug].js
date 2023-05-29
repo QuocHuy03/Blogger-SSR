@@ -27,9 +27,10 @@ export default function Blog() {
             Getting Started
           </p>
 
-          <p className="pt-1 text-xl font-medium tracking-tight text-slate-900">
-            Blog <i className="fas fa-chevron-right text-xs text-slate-400"></i>{" "}
-            <span className="capitalize">{data?.category}</span>
+          <p className="pt-1 text-xl font-medium tracking-tight text-slate-900 flex items-center">
+            <span className="capitalize">Blog</span>
+            <i className="fas fa-chevron-right text-xs text-slate-400 ml-2 mr-2"></i>
+            <span className="capitalize">{data?.categoryName}</span>
           </p>
         </header>
 
@@ -40,22 +41,20 @@ export default function Blog() {
         ) : (
           <>
             <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
-              {data?.title}
+              {data?.blog.title}
             </p>
 
             <p className="my-1 text-sm font-bold text-orange-400 capitalize">
-              {data?.category}
+              {data?.categoryName}
             </p>
 
             <p className="text-sm font-medium capitalize">
-              {new Date(data?.createdAt).toLocaleString()} - {data?.publisher}
+              {new Date(data?.blog.createdAt).toLocaleString()} - {data?.blog.publisher}
             </p>
 
-            <div
-              className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900"
-            >
+            <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
               <span
-                dangerouslySetInnerHTML={{ __html: data?.description }}
+                dangerouslySetInnerHTML={{ __html: data?.blog.description }}
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               ></span>
             </div>
