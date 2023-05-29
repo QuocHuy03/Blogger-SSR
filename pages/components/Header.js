@@ -9,7 +9,7 @@ export default function Header() {
         </a>
       </div>
 
-      <form action="https://duckduckgo.com/" className="md:w-80 lg:w-96">
+      <form action="#" className="md:w-80 lg:w-96">
         <span className="relative flex items-center group">
           <svg
             aria-hidden="true"

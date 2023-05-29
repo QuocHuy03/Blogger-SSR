@@ -34,7 +34,9 @@ export default function Blog() {
         </header>
 
         {isLoading ? (
-          <Loading />
+          <div className="text-center mt-4">
+            <Loading width={"w-8"} height={"h-8"} />
+          </div>
         ) : (
           <>
             <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
@@ -49,9 +51,12 @@ export default function Blog() {
               {new Date(data?.createdAt).toLocaleString()} - {data?.publisher}
             </p>
 
-            <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+            <div
+              className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900"
+            >
               <span
                 dangerouslySetInnerHTML={{ __html: data?.description }}
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
               ></span>
             </div>
           </>

@@ -1,14 +1,12 @@
 import { useRouter } from "next/router";
 import Header from "./components/Header";
-import SideBar from "@/components/SideBar";
 import Sidebar from "./components/Sidebar";
-import { Children } from "react";
 
 export default function Home({ children }) {
   return (
     <>
       <Header />
-      <main className="relative flex justify-center mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+      <main className="relative flex justify-center mx-auto sm:px-2 bg-white">
         <label
           htmlFor="navigation"
           className="fixed bottom-0 left-0 z-50 flex items-center justify-center w-12 h-12 mb-4 ml-4 bg-white border rounded-full shadow-lg cursor-pointer text-slate-600 border-slate-300 lg:hidden transition duration-200 ease-in-out active:scale-95"
