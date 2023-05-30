@@ -11,11 +11,11 @@ const index = () => {
   };
 
   const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs);
-  console.log(data);
+  // console.log(data);
   return (
     <Home>
       <section className="pt-[120px] pb-[120px]">
-        <div className="">
+        <div className="max-w-screen-xl mx-auto">
           <div className="-mx-4 flex flex-wrap justify-center">
             {isLoading ? (
               <div className="text-center mt-4">
