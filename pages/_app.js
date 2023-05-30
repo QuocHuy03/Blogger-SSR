@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/components/ThemeContext";
+
 import "@/styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -6,8 +6,6 @@ import "@/styles/fonts.css";
 import ProgressBar from "@badrap/bar-of-progress";
 import { useState, useEffect } from "react";
 import Router from "next/router";
-import jwt_decode from "jwt-decode";
-import { useRouter } from "next/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const progress = new ProgressBar({
@@ -19,7 +17,7 @@ const progress = new ProgressBar({
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient();
-  const router = useRouter();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -41,32 +39,15 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) {
-      router.push("/admin/login");
-    } else if (accessToken) {
-      try {
-        const decodedToken = jwt_decode(accessToken);
-        const { isAdmin } = decodedToken.user;
-        if (!isAdmin === "admin") {
-          router.push("/admin/login");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, []);
+
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider initialTheme="light">
-        <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          {loading && <div className="loading-spinner"></div>}
-          <Component {...pageProps} />
-          <ToastContainer />
-        </div>
-      </ThemeProvider>
+      <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
+        {loading && <div className="loading-spinner"></div>}
+        <Component {...pageProps} />
+        <ToastContainer />
+      </div>
     </QueryClientProvider>
   );
 }

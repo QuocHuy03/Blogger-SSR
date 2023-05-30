@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "..";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
@@ -18,6 +18,7 @@ export default function Blog() {
   const { data, isLoading, error } = useQuery(["DetailBlog", firstSlug], () =>
     fetchBlogDetail(firstSlug)
   );
+
 
   return (
     <Home>
@@ -40,24 +41,31 @@ export default function Blog() {
           </div>
         ) : (
           <>
-            <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
-              {data?.blog.title}
-            </p>
+            {data?.blog ? (
+              <>
+                <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
+                  {data.blog.title}
+                </p>
 
-            <p className="my-1 text-sm font-bold text-orange-400 capitalize">
-              {data?.categoryName}
-            </p>
+                <p className="my-1 text-sm font-bold text-orange-400 capitalize">
+                  {data.blog.categoryName}
+                </p>
 
-            <p className="text-sm font-medium capitalize">
-              {new Date(data?.blog.createdAt).toLocaleString()} - {data?.blog.publisher}
-            </p>
+                <p className="text-sm font-medium capitalize">
+                  {new Date(data.blog.createdAt).toLocaleString()} -{" "}
+                  {data.blog.publisher}
+                </p>
 
-            <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
-              <span
-                dangerouslySetInnerHTML={{ __html: data?.blog.description }}
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
-              ></span>
-            </div>
+                <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+                  <span
+                    dangerouslySetInnerHTML={{ __html: data.blog.description }}
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  ></span>
+                </div>
+              </>
+            ) : (
+              <h1 className="pt-6 text-3xl font-bold tracking-tight text-slate-900 text-center">Blog Not Found</h1>
+            )}
           </>
         )}
       </article>

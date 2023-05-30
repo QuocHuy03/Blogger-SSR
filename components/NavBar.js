@@ -1,5 +1,5 @@
 import React from "react";
-import Toggle from "./ThemeToggle";
+
 
 export default function NavBar() {
   return (
@@ -11,7 +11,7 @@ export default function NavBar() {
           </span>
         </div>
         <div className="flex justify-end pr-4">
-          <Toggle />
+       
         </div>
       </div>
     </nav>

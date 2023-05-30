@@ -1,18 +1,7 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
+import React from "react";
 
 const Background = ({ children }) => {
-  const { theme } = useContext(ThemeContext);
-
-  return (
-    <div
-      className={`${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
-    >
-      {children}
-    </div>
-  );
+  return <div className="bg-white text-gray-900">{children}</div>;
 };
 
 export default Background;

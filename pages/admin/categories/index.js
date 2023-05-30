@@ -1,11 +1,12 @@
 import Layout from "@/components/Layout";
+import { adminPages } from "@/middleware/adminPages";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import slugName from "url-slug";
 
-export default function index() {
+function index() {
   const [name, setName] = useState("");
   const [_id, set_id] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -259,3 +260,4 @@ export default function index() {
     </Layout>
   );
 }
+export default adminPages(index);

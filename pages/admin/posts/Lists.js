@@ -3,8 +3,9 @@ import axios from "axios";
 import Link from "next/link";
 import Swal from "sweetalert2";
 import React, { useEffect, useState } from "react";
+import { adminPages } from "@/middleware/adminPages";
 
-export default function Lists() {
+function Lists() {
   const [blogs, setBlogs] = useState([]);
 
   const [deleted, setDeleted] = useState(false);
@@ -139,3 +140,4 @@ export default function Lists() {
     </Layout>
   );
 }
+export default adminPages(Lists);

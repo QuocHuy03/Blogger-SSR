@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PostForm from "@/components/PostForm";
 import Spinner from "@/components/Spinner";
+import { adminPages } from "@/middleware/adminPages";
 
-export default function Edit() {
+function Edit() {
   const [blogInfo, setBlogInfo] = useState(null);
   const router = useRouter();
   const { id } = router.query;
@@ -30,3 +31,4 @@ export default function Edit() {
     </Layout>
   );
 }
+export default adminPages(Edit)
