@@ -1,3 +1,4 @@
+import Background from "@/components/Background";
 import Layout from "@/components/Layout";
 import { adminPages } from "@/middleware/adminPages";
 import axios from "axios";
@@ -137,127 +138,129 @@ function index() {
     );
   };
   return (
-    <Layout>
-      {!editingCategory ? (
-        <form className="w-full pt-6 rounded-lg" onSubmit={saveCategory}>
-          <div className="flex flex-wrap mb-4">
-            <label
-              className="block text-gray-700 font-medium mb-2 w-full"
-              htmlFor="name"
-            >
-              Name Category
-            </label>
-            <input
-              type="text"
-              className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              value={name}
-              ref={inputRef}
-              onChange={(ev) => setName(ev.target.value)}
-            />
-          </div>
+    <Background>
+      <Layout>
+        {!editingCategory ? (
+          <form className="w-full pt-6 rounded-lg" onSubmit={saveCategory}>
+            <div className="flex flex-wrap mb-4">
+              <label
+                className="block text-gray-700 font-medium mb-2 w-full"
+                htmlFor="name"
+              >
+                Name Category
+              </label>
+              <input
+                type="text"
+                className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                value={name}
+                ref={inputRef}
+                onChange={(ev) => setName(ev.target.value)}
+              />
+            </div>
 
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Save Category
-          </button>
-        </form>
-      ) : (
-        <form className="w-full pt-6 rounded-lg" onSubmit={updateCategory}>
-          <div className="flex flex-wrap mb-4">
-            <label
-              className="block text-gray-700 font-medium mb-2 w-full"
-              htmlFor="name"
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
             >
-              {editingCategory
-                ? `Edit Category [ ${editingCategory.name} ]`
-                : "Name Category"}
-            </label>
-            <input
-              type="text"
-              placeholder="Category Name"
-              className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              value={name}
-              ref={inputRef}
-              onChange={(ev) => setName(ev.target.value)}
-            />
-          </div>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Update Category
-          </button>
-        </form>
-      )}
-      <table className="min-w-full divide-y divide-gray-200 mt-5">
-        <thead className="bg-gray-50">
-          <tr>
-            <th
-              scope="col"
-              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              STT
-            </th>
-
-            <th
-              scope="col"
-              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Name
-            </th>
-            <th
-              scope="col"
-              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Time
-            </th>
-
-            <th
-              scope="col"
-              className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Action
-            </th>
-          </tr>
-        </thead>
-        {categories.length !== 0 ? (
-          <tbody className="bg-white divide-y divide-gray-200">
-            {categories &&
-              categories.map((cate, index) => (
-                <tr key={cate._id} className="text-center">
-                  <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
-
-                  <td className="px-6 py-4 whitespace-nowrap">{cate.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    {new Date(cate.createdAt).toLocaleString()}
-                  </td>
-
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={() => handleEdit(cate, _id)}
-                      className="text-indigo-600 hover:text-indigo-900"
-                    >
-                      Edit
-                    </button>
-                    <span className="px-2">|</span>
-                    <button
-                      href={"/"}
-                      className="text-red-600 hover:text-red-900"
-                      onClick={() => handleDelete(cate, _id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
+              Save Category
+            </button>
+          </form>
         ) : (
-          <tbody>{categories.length === 0 && empty()}</tbody>
+          <form className="w-full pt-6 rounded-lg" onSubmit={updateCategory}>
+            <div className="flex flex-wrap mb-4">
+              <label
+                className="block text-gray-700 font-medium mb-2 w-full"
+                htmlFor="name"
+              >
+                {editingCategory
+                  ? `Edit Category [ ${editingCategory.name} ]`
+                  : "Name Category"}
+              </label>
+              <input
+                type="text"
+                placeholder="Category Name"
+                className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                value={name}
+                ref={inputRef}
+                onChange={(ev) => setName(ev.target.value)}
+              />
+            </div>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Update Category
+            </button>
+          </form>
         )}
-      </table>
-    </Layout>
+        <table className="min-w-full divide-y divide-gray-200 mt-5">
+          <thead className="bg-gray-50">
+            <tr>
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                STT
+              </th>
+
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Time
+              </th>
+
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+          {categories.length !== 0 ? (
+            <tbody className="bg-white divide-y divide-gray-200">
+              {categories &&
+                categories.map((cate, index) => (
+                  <tr key={cate._id} className="text-center">
+                    <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+
+                    <td className="px-6 py-4 whitespace-nowrap">{cate.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {new Date(cate.createdAt).toLocaleString()}
+                    </td>
+
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <button
+                        onClick={() => handleEdit(cate, _id)}
+                        className="text-indigo-600 hover:text-indigo-900"
+                      >
+                        Edit
+                      </button>
+                      <span className="px-2">|</span>
+                      <button
+                        href={"/"}
+                        className="text-red-600 hover:text-red-900"
+                        onClick={() => handleDelete(cate, _id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          ) : (
+            <tbody>{categories.length === 0 && empty()}</tbody>
+          )}
+        </table>
+      </Layout>
+    </Background>
   );
 }
 export default adminPages(index);
