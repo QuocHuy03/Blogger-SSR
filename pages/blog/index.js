@@ -15,7 +15,7 @@ const index = () => {
   return (
     <Home>
       <section className="pt-[120px] pb-[120px]">
-        <div className="container">
+        <div className="">
           <div className="-mx-4 flex flex-wrap justify-center">
             {isLoading ? (
               <div className="text-center mt-4">

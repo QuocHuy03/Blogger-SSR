@@ -11,7 +11,7 @@ export default function Header() {
     setIsOpen(false);
   };
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-3 py-2 border-b shadow-lg bg-white/90 backdrop-blur-sm border-slate-400/40">
+    <header className="border-b bg-white sticky top-0 z-50  flex items-center justify-between px-5 py-3">
       <div className="flex items-center flex-grow basis-0">
         <a href="" className="text-lg font-semibold tracking-tight text-slate-900">
           LQH

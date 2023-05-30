@@ -21,7 +21,8 @@ export default function Blog() {
 
 
   return (
-    <Home>
+    <Home >
+      <div className="flex-1 max-w-3xl mx-auto w-full">
       <article>
         <header className="border-b pb-4 border-slate-400">
           <p className="text-base font-medium text-slate-500">
@@ -100,6 +101,7 @@ export default function Blog() {
           </dd>
         </div>
       </dl>
+      </div>
     </Home>
   );
 }

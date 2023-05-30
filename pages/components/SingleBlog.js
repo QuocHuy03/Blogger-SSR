@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SingleBlog = ({ blog }) => {
-    if (!blog) {
-        return null;
-      }
+  if (!blog) {
+    return null;
+  }
   const { title, categoryName, slug, publisher, createdAt } = blog;
   return (
     <>
