@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <div style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "white" }}>
         {loading && <div className="loading-spinner"></div>}
         <Component {...pageProps} />
         <ToastContainer />
