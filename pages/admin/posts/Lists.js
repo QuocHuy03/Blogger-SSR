@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import React, { useEffect, useState } from "react";
 import { adminPages } from "@/middleware/adminPages";
 import Background from "@/components/Background";
+import Image from "next/image";
 
 function Lists() {
   const [blogs, setBlogs] = useState([]);
@@ -38,7 +39,7 @@ function Lists() {
   const empty = () => {
     return (
       <tr className="text-center">
-        <td colSpan="5" className="px-6 py-4 whitespace-nowrap">
+        <td colSpan="7" className="px-6 py-4 whitespace-nowrap">
           <span className="text-red-600">Không Có Dữ Liệu ...</span>
         </td>
       </tr>
@@ -81,6 +82,18 @@ function Lists() {
                 scope="col"
                 className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
+                Image
+              </th>
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Career
+              </th>
+              <th
+                scope="col"
+                className="text-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Category
               </th>
 
@@ -111,6 +124,13 @@ function Lists() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {blog.publisher}
+                    </td>
+
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Image src={blog.image} alt="" width={100} height={100} />
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {blog.career}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {blog.categoryName}

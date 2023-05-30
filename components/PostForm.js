@@ -10,6 +10,8 @@ export default function PostForm({
   _id,
   title: existingTitle,
   description: existingDescription,
+  image: existingImage,
+  career: existingCareer,
   publisher: existingPublisher,
   category: existingCategory,
 }) {
@@ -17,7 +19,11 @@ export default function PostForm({
   const [description, setDescription] = useState(existingDescription || "");
   const [publisher, setPublisher] = useState(existingPublisher || "");
   const [category, setCategory] = useState(existingCategory || "");
+  const [image, setImage] = useState(existingImage || "");
+  const [career, setCareer] = useState(existingCareer || "");
+
   const [categories, setCategories] = useState([]);
+
   const router = useRouter();
   useEffect(() => {
     axios.get("/api/categories").then((result) => {
@@ -33,7 +39,9 @@ export default function PostForm({
       title === "" ||
       description === "" ||
       publisher === "" ||
-      category === ""
+      category === "" ||
+      image === "" ||
+      career === ""
     ) {
       toast.error("Vui lòng nhập đầy đủ thông tin", {
         position: "top-right",
@@ -51,6 +59,8 @@ export default function PostForm({
           description,
           publisher,
           category,
+          image,
+          career,
           slug: slugName(title),
         };
         if (_id) {
@@ -79,10 +89,12 @@ export default function PostForm({
           });
           setTitle("");
           setPublisher("");
+          setImage("");
+          setCareer("");
           setCategory("");
           setDescription("");
         }
-        router.push("/admin/posts/Lists")
+        router.push("/admin/posts/Lists");
       } catch (error) {
         console.error(error);
       }
@@ -123,6 +135,36 @@ export default function PostForm({
           className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
           value={publisher}
           onChange={(ev) => setPublisher(ev.target.value)}
+        />
+      </div>
+      <div className="flex flex-wrap mb-4">
+        <label
+          className="block text-gray-700 font-medium mb-2 w-full"
+          htmlFor="name"
+        >
+          Link Image
+        </label>
+        <input
+          type="text"
+          placeholder="Link Địa Chỉ Hình Ảnh"
+          className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          value={image}
+          onChange={(ev) => setImage(ev.target.value)}
+        />
+      </div>
+      <div className="flex flex-wrap mb-4">
+        <label
+          className="block text-gray-700 font-medium mb-2 w-full"
+          htmlFor="name"
+        >
+          Career
+        </label>
+        <input
+          type="text"
+          placeholder="Nhập Nghề Nghiệp"
+          className="block w-full px-4 py-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          value={career}
+          onChange={(ev) => setCareer(ev.target.value)}
         />
       </div>
       <div className="flex flex-wrap mb-4">

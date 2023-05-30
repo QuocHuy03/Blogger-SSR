@@ -5,11 +5,12 @@ const SingleBlog = ({ blog }) => {
   if (!blog) {
     return null;
   }
-  const { title, categoryName, slug, publisher, createdAt } = blog;
+  const { title, categoryName, image, career, slug, publisher, createdAt } =
+    blog;
   return (
     <>
       <div
-        className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one dark:bg-dark"
+        className=" relative overflow-hidden rounded-md bg-white shadow-one"
         data-wow-delay=".1s"
       >
         <Link
@@ -19,11 +20,7 @@ const SingleBlog = ({ blog }) => {
           <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
             Active
           </span>
-          <Image
-            src="https://mangoads.vn/learn/wp-content/uploads/2021/04/Tim-hieu-Next-JS-680x510.png"
-            alt="image"
-            fill
-          />
+          <Image src={image} alt="image" fill />
         </Link>
         <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
           <h3>
@@ -52,7 +49,7 @@ const SingleBlog = ({ blog }) => {
                 <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
                   By {publisher}
                 </h4>
-                <p className="text-xs text-body-color">Lập Trình Viên</p>
+                <p className="text-xs text-body-color">{career}</p>
               </div>
             </div>
             <div className="inline-block">

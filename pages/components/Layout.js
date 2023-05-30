@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Aside from "./Aside";
 import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -72,6 +73,7 @@ export default function Layout({ children }) {
         </div>
         {slug ? <Aside isChecked={isChecked} /> : null}
       </main>
+      <Footer />
     </>
   );
 }
