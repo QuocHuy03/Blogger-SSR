@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import Home from "..";
 import axios from "axios";
 import Loading from "../components/Loading";
 import SingleBlog from "../components/SingleBlog";
+import Layout from "../components/Layout";
 
 const index = () => {
   const fetchBlogs = async () => {
@@ -13,7 +13,7 @@ const index = () => {
   const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs);
   // console.log(data);
   return (
-    <Home>
+    <Layout>
       <section className="pt-[120px] pb-[120px]">
         <div className="max-w-screen-xl mx-auto">
           <div className="-mx-4 flex flex-wrap justify-center">
@@ -99,7 +99,7 @@ const index = () => {
           </div>
         </div>
       </section>
-    </Home>
+    </Layout>
   );
 };
 

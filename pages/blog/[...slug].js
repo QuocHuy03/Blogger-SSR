@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loading from "../components/Loading";
+import Layout from "../components/Layout";
 
 export default function Blog() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function Blog() {
 
 
   return (
-    <Home >
+    <Layout>
       <div className="flex-1 max-w-3xl mx-auto w-full">
       <article>
         <header className="border-b pb-4 border-slate-400">
@@ -102,6 +103,6 @@ export default function Blog() {
         </div>
       </dl>
       </div>
-    </Home>
+    </Layout>
   );
 }
