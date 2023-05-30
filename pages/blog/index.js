@@ -11,10 +11,10 @@ const index = () => {
   };
 
   const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs);
-  // console.log(data);
+
   return (
     <Layout>
-      <section className="pt-[120px] pb-[120px]">
+      <section className="pt-[100px] pb-[100px]">
         <div className="max-w-screen-xl mx-auto">
           <div className="-mx-4 flex flex-wrap justify-center">
             {isLoading ? (
@@ -37,7 +37,6 @@ const index = () => {
 
           <div
             className="wow fadeInUp -mx-4 flex flex-wrap"
-            data-wow-delay=".15s"
           >
             <div className="w-full px-4">
               <ul className="flex items-center justify-center pt-8">
@@ -57,20 +56,13 @@ const index = () => {
                     1
                   </a>
                 </li>
+            
                 <li className="mx-1">
                   <a
                     href="#0"
                     className="font-medium flex h-9 min-w-[36px] items-center justify-center rounded-md bg-slate-200 backdrop-opacity-10 px-4 text-sm transition hover:bg-cyan-400 hover:text-white"
                   >
                     2
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="font-medium flex h-9 min-w-[36px] items-center justify-center rounded-md bg-slate-200 backdrop-opacity-10 px-4 text-sm transition hover:bg-cyan-400 hover:text-white"
-                  >
-                    3
                   </a>
                 </li>
                 <li className="mx-1">

@@ -10,8 +10,7 @@ const SingleBlog = ({ blog }) => {
   return (
     <>
       <div
-        className=" relative overflow-hidden rounded-md bg-white shadow-one"
-        data-wow-delay=".1s"
+        className=" relative border overflow-hidden rounded-md bg-white shadow-one"
       >
         <Link
           href={`/blog/${slug}`}
@@ -22,16 +21,16 @@ const SingleBlog = ({ blog }) => {
           </span>
           <Image src={image} alt="image" fill />
         </Link>
-        <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
+        <div className="p-4 sm:p-6 md:py-6 md:px-4 lg:p-6 xl:py-6 xl:px-4 2xl:p-6">
           <h3>
             <Link
               href={`/blog/${slug}`}
-              className="mb-4 block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
+              className="mb-2 block text-lg font-bold text-black hover:text-primary"
             >
               {title}
             </Link>
           </h3>
-          <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
+          <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium">
             {categoryName}
           </p>
           <div className="flex items-center">
@@ -47,7 +46,7 @@ const SingleBlog = ({ blog }) => {
               </div>
               <div className="w-full">
                 <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
-                  By {publisher}
+                  {publisher}
                 </h4>
                 <p className="text-xs text-body-color">{career}</p>
               </div>
