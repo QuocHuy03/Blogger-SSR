@@ -14,9 +14,17 @@ const index = () => {
 
   return (
     <Layout>
-      <section className="pt-[100px] pb-[100px]">
+      <div class="py-10 sm:text-center">
+        <h1 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">
+          Quốc Huy Blog
+        </h1>
+        <p class="text-lg text-slate-700 dark:text-slate-400">
+          Không có gì ngoài các bài viết chất lượng, chuyên sâu.
+        </p>
+      </div>
+      <section className="pt-[30px] pb-[50px]">
         <div className="max-w-screen-xl mx-auto">
-          <div className="-mx-4 flex flex-wrap justify-center">
+          <div className="-mx-4 pb-12 flex flex-wrap justify-center">
             {isLoading ? (
               <div className="text-center mt-4">
                 <Loading width={"w-8"} height={"h-8"} />
@@ -35,9 +43,7 @@ const index = () => {
             )}
           </div>
 
-          <div
-            className="wow fadeInUp -mx-4 flex flex-wrap"
-          >
+          <div className="wow fadeInUp -mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <ul className="flex items-center justify-center pt-8">
                 <li className="mx-1">
@@ -56,7 +62,7 @@ const index = () => {
                     1
                   </a>
                 </li>
-            
+
                 <li className="mx-1">
                   <a
                     href="#0"
