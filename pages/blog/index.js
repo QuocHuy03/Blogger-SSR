@@ -10,9 +10,7 @@ const index = () => {
     return res?.data;
   };
 
-  const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs, {
-    staleTime: 0,
-  });
+  const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs);
   console.log(data);
   return (
     <Home>
