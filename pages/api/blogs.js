@@ -14,7 +14,29 @@ export default async function handle(req, res) {
       const categories = await Category.findOne({ slug: blog?.category });
       res.json({
         blog: blog,
-        categoryName: categories?.name
+        categoryName: categories?.name,
+      });
+    } else if (req.query?.page) {
+      const limit = 4; // Số lượng bài viết trên mỗi trang
+      const skip = (req.query.page - 1) * limit;
+
+      const totalBlogs = await Blog.countDocuments();
+      const totalPages = Math.ceil(totalBlogs / limit);
+
+      const blogs = await Blog.find().skip(skip).limit(limit);
+
+      const categoryOfblogs = await Promise.all(
+        blogs.map(async (huydev) => {
+          const categories = await Category.findOne({
+            slug: huydev.category,
+          });
+          return { ...huydev._doc, categoryName: categories.name };
+        })
+      );
+      res.json({
+        blogs: categoryOfblogs,
+        currentPage: req.query.page,
+        totalPages: totalPages,
       });
     } else {
       const blogs = await Blog.find();

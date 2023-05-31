@@ -40,7 +40,7 @@ export default function Sidebar() {
             </h3>
 
             <ul role="list" className="mt-2 space-y-2 ">
-              {data?.map((huydev, index) => (
+              {data?.blogs.map((huydev, index) => (
                 <li key={index} className="flex items-center">
                   <span
                     className={`my-1 mr-1.5 h-2 w-2 flex-shrink-0 rounded-full border-2 border-gray-400 ${
