@@ -30,16 +30,16 @@ const index = () => {
                 <Loading width={"w-8"} height={"h-8"} />
               </div>
             ) : (
-              <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {data?.map((blog) => (
                   <div
                     key={blog._id}
-                    className="w-full px-2 pb-4 md:w-3/4 lg:w-1/2 xl:w-1/4"
+                    className="w-full border overflow-hidden rounded-md bg-white shadow-one flex flex-col"
                   >
                     <SingleBlog blog={blog} />
                   </div>
                 ))}
-              </>
+              </div>
             )}
           </div>
 

@@ -22,9 +22,9 @@ export default function Home() {
               Hi, I'm Lê Quốc Huy
             </h1>
             <p>
-              I'm a web developer from Vietnam, working on NextJS, Laravel, NodeJS and
-              TailwindCSS. I love to working on open source projects and
-              contribute to the community.
+              I'm a web developer from Vietnam, working on NextJS, Laravel,
+              NodeJS and TailwindCSS. I love to working on open source projects
+              and contribute to the community.
             </p>
             <div className="flex items-center mt-5">
               <span className="mr-4 text-slate-600">Find Me On :</span>
@@ -90,13 +90,44 @@ export default function Home() {
             <a
               href="/blog"
               className="transition-all hover:text-fuchsia-500"
-              title="Cài Đặt NextJS"
+              title="Next.js 13"
             >
-              <h2 className="font-semibold">Cài Đặt NextJS 12</h2>
+              <h2 className="font-semibold">Next.js 13</h2>
             </a>
-            <p className="mt-2 line-clamp-2">
-            Performance improvements: Next.js có thể tiếp tục cải thiện hiệu suất trang web bằng cách tối ưu hóa quá trình rendering và tải trang. Các cải tiến như Incremental Static Regeneration (ISR) hoặc Streaming SSR có thể được cung cấp để tăng tốc quá trình tải trang và cải thiện trải nghiệm người dùng, ...
-            </p>
+            <li className="mt-2">
+              Performance improvements : Next.js có thể tiếp tục cải thiện hiệu
+              suất trang web bằng cách tối ưu hóa quá trình rendering và tải
+              trang. Các cải tiến như Incremental Static Regeneration (ISR) hoặc
+              Streaming SSR có thể được cung cấp để tăng tốc quá trình tải trang
+              và cải thiện trải nghiệm người dùng, ...
+            </li>
+            <li className="mt-2">
+              Tăng hiệu suất và tốc độ tải trang : Next.js 13 có thể có cải tiến
+              về hiệu suất và tối ưu hóa tốc độ tải trang, giúp cải thiện trải
+              nghiệm người dùng và tăng khả năng tương tác của ứng dụng.
+            </li>
+            <li className="mt-2">
+              Tích hợp tốt hơn với React 18 : Next.js 13 có thể đi kèm với tích
+              hợp tốt hơn với phiên bản React 18 mới nhất, cho phép bạn sử dụng
+              các tính năng và cải tiến mới nhất của React.
+            </li>
+            <li className="mt-2">
+              Cải tiến Dev Server : Next.js 13 có thể cung cấp các cải tiến về
+              Dev Server, bao gồm tăng tốc độ rebuild và hot reloading để cải
+              thiện quá trình phát triển ứng dụng.
+            </li>
+            <li className="mt-2">
+              Cải tiến về quản lý tệp tin và tải tài nguyên : Next.js 13 có thể
+              cung cấp các cải tiến về quản lý tệp tin và tải tài nguyên, giúp
+              tối ưu hóa kích thước tệp và cải thiện quy trình phát triển.
+            </li>
+
+            <li className="mt-2"> 
+              Cải tiến về xử lý tệp và dữ liệu tĩnh: Next.js 13 có thể có cải
+              tiến về xử lý tệp và dữ liệu tĩnh, bao gồm cải tiến về xử lý và
+              lưu trữ các tệp tin tĩnh trong ứng dụng.
+            </li>
+
             <a
               href="/blog"
               className="mt-1.5 flex items-center font-medium text-sm group text-fuchsia-500 gap-0.5"

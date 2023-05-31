@@ -10,7 +10,7 @@ const SingleBlog = ({ blog }) => {
   return (
     <>
       <div
-        className=" relative border overflow-hidden rounded-md bg-white shadow-one"
+        className=" relative overflow-hidden rounded-md bg-white shadow-one "
       >
         <Link
           href={`/blog/${slug}`}
