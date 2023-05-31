@@ -74,7 +74,7 @@ const index = () => {
                         <span
                           className={`${
                             pageNumber === parseInt(data?.currentPage)
-                              ? "font-bold bg-cyan-400"
+                              ? "font-bold text-white bg-blue-400"
                               : "font-medium"
                           } flex h-9 min-w-[36px] items-center justify-center rounded-md bg-slate-200 backdrop-opacity-10 px-4 text-sm transition hover:bg-cyan-400 hover:text-white`}
                         >

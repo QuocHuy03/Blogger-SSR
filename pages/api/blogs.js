@@ -17,7 +17,7 @@ export default async function handle(req, res) {
         categoryName: categories?.name,
       });
     } else if (req.query?.page) {
-      const limit = 4; // Số lượng bài viết trên mỗi trang
+      const limit = 8;
       const skip = (req.query.page - 1) * limit;
 
       const totalBlogs = await Blog.countDocuments();
