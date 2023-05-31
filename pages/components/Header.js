@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="border-b bg-white sticky top-0 z-50  flex items-center justify-between px-5 py-3">
       <div className="flex items-center flex-grow basis-0">
-        <a href="" className="text-lg font-semibold tracking-tight text-slate-900">
+        <a href="/" className="text-lg font-semibold tracking-tight text-slate-900">
           LQH
         </a>
       </div>

@@ -22,7 +22,7 @@ export default function Home() {
               Hi, I'm Lê Quốc Huy
             </h1>
             <p>
-              I'm a web developer from Vietnam, working on NextJS, Laravel, and
+              I'm a web developer from Vietnam, working on NextJS, Laravel, NodeJS and
               TailwindCSS. I love to working on open source projects and
               contribute to the community.
             </p>

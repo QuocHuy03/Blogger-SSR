@@ -32,7 +32,7 @@ export default function Sidebar() {
       <nav className="sticky top-[4.5rem] w-64 text-base lg:text-sm">
         <ul
           role="list"
-          className="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-4 pl-4 space-y-8"
+          className="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-4 px-4 space-y-8"
         >
           <li>
             <h3 className="font-semibold tracking-tight text-slate-900">

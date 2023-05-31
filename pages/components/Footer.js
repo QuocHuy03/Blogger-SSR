@@ -2,9 +2,9 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="relative z-10">
-      <div class="py-5 border-t border-gray-200 bg-white">
-        <div class="max-w-screen-xl mx-auto">
-          <p class="text-center text-base pb-2">Copyright © 2023 Lê Quốc Huy</p>
+      <div className="py-5 border-t border-gray-200 bg-white">
+        <div className="max-w-screen-xl mx-auto">
+          <p className="text-center text-base pb-2">Copyright © 2023 Lê Quốc Huy</p>
           <div className="flex items-center justify-center">
             <a
               href="https://tailwindcss.com/"
@@ -21,7 +21,7 @@ export default function Footer() {
               >
                 <path
                   d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
-                  class="fill-cyan-500 dark:fill-cyan-400"
+                  className="fill-cyan-500 dark:fill-cyan-400"
                 ></path>
               </svg>
             </a>
