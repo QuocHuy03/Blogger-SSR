@@ -14,8 +14,8 @@ const index = () => {
 
   return (
     <Layout>
-      <div class="py-10 sm:text-center">
-        <h1 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">
+      <div class="py-5 sm:text-center">
+        <h1 class="mb-4 text-2xl font-extrabold tracking-tight text-slate-900  sm:text-2xl">
           Quốc Huy Blog
         </h1>
         <p class="text-lg text-slate-700 dark:text-slate-400">

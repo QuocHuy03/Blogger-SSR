@@ -27,7 +27,7 @@ export default function Home() {
               contribute to the community.
             </p>
             <div className="flex items-center mt-5">
-              <span className="mr-4 text-slate-600">Find me on :</span>
+              <span className="mr-4 text-slate-600">Find Me On :</span>
               <ul className="flex space-x-4">
                 <li>
                   <a
@@ -90,9 +90,9 @@ export default function Home() {
             <a
               href="/blog"
               className="transition-all hover:text-fuchsia-500"
-              title="Cách Cài Đặt NextJS"
+              title="Cài Đặt NextJS"
             >
-              <h2 className="font-semibold">Cách Cài Đặt NextJS 12</h2>
+              <h2 className="font-semibold">Cài Đặt NextJS 12</h2>
             </a>
             <p className="mt-2 line-clamp-2">
             Performance improvements: Next.js có thể tiếp tục cải thiện hiệu suất trang web bằng cách tối ưu hóa quá trình rendering và tải trang. Các cải tiến như Incremental Static Regeneration (ISR) hoặc Streaming SSR có thể được cung cấp để tăng tốc quá trình tải trang và cải thiện trải nghiệm người dùng, ...
