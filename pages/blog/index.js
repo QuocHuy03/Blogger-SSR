@@ -22,7 +22,7 @@ const index = () => {
           Không có gì ngoài các bài viết chất lượng, chuyên sâu.
         </p>
       </div>
-      <section className="pt-[30px] pb-[50px]">
+      <section className="pt-[20px] pb-[50px]">
         <div className="max-w-screen-xl mx-auto">
           <div className="-mx-4 pb-12 flex flex-wrap justify-center">
             {isLoading ? (
@@ -34,7 +34,7 @@ const index = () => {
                 {data?.map((blog) => (
                   <div
                     key={blog._id}
-                    className="w-full px-2 pb-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+                    className="w-full px-2 pb-4 md:w-3/4 lg:w-1/2 xl:w-1/4"
                   >
                     <SingleBlog blog={blog} />
                   </div>

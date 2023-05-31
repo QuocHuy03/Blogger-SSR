@@ -21,20 +21,20 @@ const SingleBlog = ({ blog }) => {
           </span>
           <Image src={image} alt="image" fill />
         </Link>
-        <div className="p-4 sm:p-6 md:py-6 md:px-4 lg:p-6 xl:py-6 xl:px-4 2xl:p-6">
+        <div className="p-2 sm:p-2 md:py-2 md:px-2 lg:p-4 xl:py-4 xl:px-2 2xl:p-4">
           <h3>
             <Link
               href={`/blog/${slug}`}
-              className="mb-2 block text-lg font-bold text-black hover:text-primary"
+              className="mb-2 block text-sm font-bold text-black hover:text-primary"
             >
               {title}
             </Link>
           </h3>
-          <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium">
+          <p className="mb-2 border-b border-body-color border-opacity-10 pb-2 text-base font-medium">
             {categoryName}
           </p>
           <div className="flex items-center">
-            <div className="mr-5 flex items-center border-r border-body-color border-opacity-10 pr-5 dark:border-white dark:border-opacity-10 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5">
+            <div className="mr-5 flex items-center border-r border-body-color border-opacity-10 pr-5 dark:border-white dark:border-opacity-10 xl:mr-3 xl:pr-3">
               <div className="mr-4">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full">
                   <Image

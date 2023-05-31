@@ -1,19 +1,14 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
   return (
     <header className="border-b bg-white sticky top-0 z-50  flex items-center justify-between px-5 py-3">
       <div className="flex items-center flex-grow basis-0">
-        <a href="/" className="text-lg font-semibold tracking-tight text-slate-900">
+        <a
+          href="/"
+          className="text-lg font-semibold tracking-tight text-slate-900"
+        >
           LQH
         </a>
       </div>
@@ -34,19 +29,17 @@ export default function Header() {
             className="w-full py-2 pl-10 pr-2 border rounded bg-slate-100 placeholder-slate-400 text-slate-800 border-slate-100 outline outline-offset-2 outline-2 outline-transparent hover:border-slate-200 focus:border-slate-200 focus:outline-slate-600"
           />
         </span>
-        <input type="hidden" name="sites" value="spinalcms.com" />
+        <input type="hidden" name="sites" value="#" />
         <input type="submit" value="Search" className="sr-only" />
       </form>
 
       <div className="items-center justify-end flex-grow hidden basis-0 md:flex">
-        <button
+        <Link href="/blog"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200"
-          // onClick={openModal}
         >
-          FeedBack
-        </button>
+          Docs
+        </Link>
       </div>
- 
     </header>
   );
 }
