@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Layout from "../components/Layout";
+import Link from "next/link";
 
 export default function Blog() {
   const router = useRouter();
@@ -26,8 +27,8 @@ export default function Blog() {
         <article>
           <header className="border-b pb-4 border-slate-400">
             <div className="mb-3 -ml-1">
-              <a
-                href="#"
+              <Link
+                href="/blog"
                 className="flex items-center text-sm group text-fuchsia-500"
               >
                 <svg
@@ -45,7 +46,7 @@ export default function Blog() {
                   ></path>
                 </svg>
                 Back To Home
-              </a>
+              </Link>
             </div>
 
             <div className="pt-1 text-xl font-medium tracking-tight text-slate-900 flex items-center">

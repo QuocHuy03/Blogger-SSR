@@ -37,7 +37,7 @@ export default function Header() {
         <Link href="/blog"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200"
         >
-          Docs
+          Blog
         </Link>
       </div>
     </header>
