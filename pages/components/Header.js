@@ -34,10 +34,10 @@ export default function Header() {
       </form>
 
       <div className="items-center justify-end flex-grow hidden basis-0 md:flex">
-        <Link href="/blog"
+        <Link href="/blogs"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200"
         >
-          Blog
+          Blogs
         </Link>
       </div>
     </header>

@@ -88,7 +88,7 @@ export default function Home() {
         <div className="space-y-8">
           <div>
             <a
-              href="/blog"
+              href="/blogs"
               className="transition-all hover:text-fuchsia-500"
               title="Next.js 13"
             >
@@ -129,7 +129,7 @@ export default function Home() {
             </li>
 
             <a
-              href="/blog"
+              href="/blogs"
               className="mt-1.5 flex items-center font-medium text-sm group text-fuchsia-500 gap-0.5"
             >
               Read More

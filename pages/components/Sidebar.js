@@ -40,7 +40,7 @@ export default function Sidebar() {
             </h3>
 
             <ul role="list" className="mt-2 space-y-2 ">
-              {data?.blogs.map((huydev, index) => (
+              {data?.map((huydev, index) => (
                 <li key={index} className="flex items-center">
                   <span
                     className={`my-1 mr-1.5 h-2 w-2 flex-shrink-0 rounded-full border-2 border-gray-400 ${
@@ -49,7 +49,7 @@ export default function Sidebar() {
                         : "bg-transparent"
                     }`}
                   ></span>
-                  <Link href={`/blog/${huydev.slug}`}>
+                  <Link href={`/blogs/${huydev.slug}`}>
                     <p
                       className="text-slate-600 text-sm hover:text-slate-800"
                       onClick={() => handleLinkClick(huydev.slug)}

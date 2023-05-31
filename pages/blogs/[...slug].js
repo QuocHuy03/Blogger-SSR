@@ -28,7 +28,7 @@ export default function Blog() {
           <header className="border-b pb-4 border-slate-400">
             <div className="mb-3 -ml-1">
               <Link
-                href="/blog"
+                href="/blogs"
                 className="flex items-center text-sm group text-fuchsia-500"
               >
                 <svg

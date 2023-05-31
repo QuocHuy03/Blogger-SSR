@@ -13,7 +13,7 @@ const SingleBlog = ({ blog }) => {
         className=" relative overflow-hidden rounded-md bg-white shadow-one "
       >
         <Link
-          href={`/blog/${slug}`}
+          href={`/blogs/${slug}`}
           className="relative block h-[220px] w-full"
         >
           <Image src={image} alt="image" fill />
@@ -21,7 +21,7 @@ const SingleBlog = ({ blog }) => {
         <div className="p-2 sm:p-2 md:py-2 md:px-2 lg:p-4 xl:py-4 xl:px-2 2xl:p-4">
           <h3>
             <Link
-              href={`/blog/${slug}`}
+              href={`/blogs/${slug}`}
               className="mb-2 block text-sm font-bold text-black hover:text-primary"
             >
               {title}
