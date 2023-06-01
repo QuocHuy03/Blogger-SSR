@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import Loading from "./Loading";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { BlogContext } from "@/context/BlogContext";
 
 export default function Sidebar() {
-
+  const { blogsData, setBlogsData } = useContext(BlogContext);
   const router = useRouter();
   const { slug } = router.query;
   const [selectedSlug, setSelectedSlug] = useState(null);
@@ -18,6 +19,7 @@ export default function Sidebar() {
 
   const fetchBlogs = async () => {
     const res = await axios.get("/api/blogs");
+    setBlogsData(res?.data);
     return res?.data;
   };
   const { data, isLoading, error } = useQuery(["blogs"], fetchBlogs, {
@@ -26,7 +28,6 @@ export default function Sidebar() {
 
   return (
     <div className="fixed z-10 top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none bg-white">
-      
       <div className="absolute inset-y-0 right-0 w-full lg:w-[50vw] border-r border-gray-200 bg-white lg:bg-slate-50"></div>
 
       <nav className="sticky top-[4.5rem] w-64 text-base lg:text-sm">

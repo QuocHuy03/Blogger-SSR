@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-import Aside from "./components/Aside";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import { useRouter } from "next/router";
 import Layout from "./components/Layout";
 
 export default function Home() {

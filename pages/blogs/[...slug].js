@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-import Home from "..";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Layout from "../components/Layout";
 import Link from "next/link";
+import { BlogContext } from "@/context/BlogContext";
 
 export default function Blog() {
+  const { blogsData } = useContext(BlogContext);
   const router = useRouter();
   const { slug } = router.query;
   const firstSlug = Array.isArray(slug) ? slug[0] : slug;
@@ -17,9 +18,16 @@ export default function Blog() {
     return response.data;
   };
 
-  const { data, isLoading, error } = useQuery(["DetailBlog", firstSlug], () =>
-    fetchBlogDetail(firstSlug)
+  const { data: blogDataSlug, isLoading: blogLoading } = useQuery(
+    ["DetailBlog", [firstSlug]],
+    () => fetchBlogDetail(firstSlug)
   );
+
+  const currentBlogIndex = blogsData?.findIndex(
+    (blog) => blog.slug === firstSlug
+  );
+  const previousIndex = currentBlogIndex - 1;
+  const nextIndex = currentBlogIndex + 1;
 
   return (
     <Layout>
@@ -52,43 +60,43 @@ export default function Blog() {
             <div className="pt-1 text-xl font-medium tracking-tight text-slate-900 flex items-center">
               <span className="capitalize">Blog</span>
               <i className="fas fa-chevron-right text-xs text-slate-400 ml-2 mr-2"></i>
-              {isLoading ? (
+              {blogLoading ? (
                 <>
                   <div className="text-center">
                     <Loading width={"w-5"} height={"h-5"} />
                   </div>
                 </>
               ) : (
-                <span className="capitalize">{data?.categoryName}</span>
+                <span className="capitalize">{blogDataSlug?.categoryName}</span>
               )}
             </div>
           </header>
 
-          {isLoading ? (
+          {blogLoading ? (
             <div className="text-center mt-4">
               <Loading width={"w-8"} height={"h-8"} />
             </div>
           ) : (
             <>
-              {data?.blog ? (
+              {blogDataSlug?.blog ? (
                 <>
                   <p className="mt-4 text-3xl font-bold text-slate-600 capitalize">
-                    {data.blog.title}
+                    {blogDataSlug.blog.title}
                   </p>
 
                   <p className="my-1 text-sm font-bold text-orange-400 capitalize">
-                    {data.blog.categoryName}
+                    {blogDataSlug.blog.categoryName}
                   </p>
 
                   <p className="text-sm font-medium capitalize">
-                    {new Date(data.blog.createdAt).toLocaleString()} -{" "}
-                    {data.blog.publisher}
+                    {new Date(blogDataSlug.blog.createdAt).toLocaleString()} -{" "}
+                    {blogDataSlug.blog.publisher}
                   </p>
 
                   <div className="mt-4 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
                     <span
                       dangerouslySetInnerHTML={{
-                        __html: data.blog.description,
+                        __html: blogDataSlug.blog.description,
                       }}
                       style={{ fontFamily: "'Montserrat', sans-serif" }}
                     ></span>
@@ -107,30 +115,45 @@ export default function Blog() {
             <dt className="text-sm font-normal tracking-tight text-slate-600">
               Previous
             </dt>
-
-            <dd className="mt-1">
-              <a
-                href="#"
-                className="text-base font-semibold text-slate-900 hover:underline"
-              >
-                Quick start guide
-              </a>
-            </dd>
+            {previousIndex >= 0 ? (
+              <dd className="mt-1">
+                <Link
+                  href={`/blogs/${blogsData[previousIndex]?.slug}`}
+                  passHref
+                >
+                  <span className="text-base font-semibold text-slate-900 hover:underline">
+                    {blogsData[previousIndex]?.title}
+                  </span>
+                </Link>
+              </dd>
+            ) : (
+              <dd className="mt-1">
+                <span className="text-base font-semibold text-slate-400">
+                  No Previous Blog
+                </span>
+              </dd>
+            )}
           </div>
 
           <div className="ml-auto text-right">
             <dt className="text-sm font-normal tracking-tight text-slate-600">
               Next
             </dt>
-
-            <dd className="mt-1">
-              <a
-                href="#"
-                className="text-base font-semibold text-slate-900 hover:underline"
-              >
-                What are content types?
-              </a>
-            </dd>
+            {nextIndex < blogsData?.length ? (
+              <dd className="mt-1">
+                <Link href={`/blogs/${blogsData[nextIndex]?.slug}`} passHref>
+                  <span className="text-base font-semibold text-slate-900 hover:underline">
+                    {blogsData[nextIndex]?.title}
+                  </span>
+                </Link>
+              </dd>
+            ) : (
+              <dd className="mt-1">
+                <span className="text-base font-semibold text-slate-400">
+                  No Next Blog
+                </span>
+              </dd>
+            )}
           </div>
         </dl>
       </div>
