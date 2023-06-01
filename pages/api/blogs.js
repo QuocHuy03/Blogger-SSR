@@ -38,6 +38,19 @@ export default async function handle(req, res) {
         currentPage: req.query.page,
         totalPages: totalPages,
       });
+    } else if (req.query?.search) {
+      try {
+        // Perform the search logic based on the searchQuery
+        const blogs = await Blog.find({ $text: { $search: req.query.search } });
+
+        // Return the search results
+        res.json({ message: "Search results", blogs });
+      } catch (error) {
+        console.error("Error searching blogs:", error);
+        res
+          .status(500)
+          .json({ error: "An error occurred while searching blogs" });
+      }
     } else {
       const blogs = await Blog.find();
       const categoryOfblog = await Promise.all(

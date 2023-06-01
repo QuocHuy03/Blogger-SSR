@@ -11,7 +11,7 @@ export default function Header() {
     if (!isDirty) return;
     const search = async () => {
       try {
-        const response = await axios.get(`/api/blog?search=${debouncedValue}`);
+        const response = await axios.get(`/api/blogs?search=${debouncedValue}`);
         console.log(response.data);
       } catch (error) {
         console.error("Error searching:", error);
