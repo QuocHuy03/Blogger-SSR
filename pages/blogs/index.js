@@ -9,7 +9,6 @@ import Link from "next/link";
 const index = () => {
   const router = useRouter();
   const page = parseInt(router.query?.page) || 1;
-  console.log(page); // Lấy số trang từ query parameter
 
   const fetchBlogs = async () => {
     const res = await axios.get(`/api/blogs?page=${page}`);
@@ -21,10 +20,10 @@ const index = () => {
   return (
     <Layout>
       <div className="py-5 sm:text-center">
-        <h1 class="mb-4 text-2xl font-extrabold tracking-tight text-slate-900  sm:text-2xl">
+        <h1 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900  sm:text-2xl">
           Quốc Huy Blog
         </h1>
-        <p class="text-lg text-slate-700 dark:text-slate-400">
+        <p className="text-lg text-slate-700 dark:text-slate-400">
           Không có gì ngoài các bài viết chất lượng, chuyên sâu.
         </p>
       </div>
