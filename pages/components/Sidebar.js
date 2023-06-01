@@ -28,7 +28,7 @@ export default function Sidebar() {
 
   return (
     <div className="fixed z-10 top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none bg-white">
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[50vw] border-r border-gray-200 bg-white lg:bg-slate-50"></div>
+      <div className="z-60 absolute inset-y-0 right-0 w-full lg:w-[50vw] border-r border-gray-200 bg-white lg:bg-slate-50"></div>
 
       <nav className="sticky top-[4.5rem] w-64 text-base lg:text-sm">
         <ul

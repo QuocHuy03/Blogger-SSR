@@ -1,7 +1,7 @@
 import React from "react";
 export default function Footer() {
   return (
-    <footer className="relative z-10">
+    <footer className="relative">
       <div className="py-5 border-t border-gray-200 bg-white">
         <div className="max-w-screen-xl mx-auto">
           <p className="text-center text-base pb-2">Copyright © 2023 Lê Quốc Huy</p>
