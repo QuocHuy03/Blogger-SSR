@@ -6,7 +6,8 @@ import ProgressBar from "@badrap/bar-of-progress";
 import { useState, useEffect } from "react";
 import Router from "next/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BlogProvider } from "@/context/BlogContext";
+import { BlogProvider } from "@/hook/BlogContext";
+
 
 const progress = new ProgressBar({
   size: 2,

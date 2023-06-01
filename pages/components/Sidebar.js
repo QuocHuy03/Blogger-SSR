@@ -5,7 +5,8 @@ import Loading from "./Loading";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { BlogContext } from "@/context/BlogContext";
+import { BlogContext } from "@/hook/BlogContext";
+
 
 export default function Sidebar() {
   const { blogsData, setBlogsData } = useContext(BlogContext);

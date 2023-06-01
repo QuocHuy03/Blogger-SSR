@@ -1,7 +1,24 @@
+import { useDebounce } from "@/hook/SearchDebounce";
+import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Header() {
+  const [searchValue, setSearchValue] = useState("");
+  const [debouncedValue, isDirty] = useDebounce(searchValue, 500);
+
+  useEffect(() => {
+    if (!isDirty) return;
+    const search = async () => {
+      try {
+        const response = await axios.get(`/api/blog?search=${debouncedValue}`);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error searching:", error);
+      }
+    };
+    search();
+  }, [debouncedValue]);
   return (
     <header className="border-b bg-white sticky top-0 z-50 flex items-center justify-between px-4 py-3 gap-4">
       <div className="flex items-center justify-start">
@@ -13,7 +30,9 @@ export default function Header() {
         </a>
       </div>
 
-      <form action="#" className="flex items-center justify-center sm:w-full h-10 md:w-80 lg:w-96">
+      <div
+        className="flex items-center justify-center sm:w-full h-10"
+      >
         <span className="relative flex items-center group">
           <svg
             aria-hidden="true"
@@ -24,14 +43,15 @@ export default function Header() {
           </svg>
           <input
             type="text"
-            name="q"
             placeholder="Search docs…"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             className="w-full py-2 pl-8 pr-2 border rounded bg-slate-100 placeholder-slate-400 text-slate-800 border-slate-100 outline outline-offset-2 outline-2 outline-transparent hover:border-slate-200 focus:border-slate-200 focus:outline-slate-600"
           />
         </span>
         <input type="hidden" name="sites" value="#" />
-        <input type="submit" value="Search" className="sr-only" />
-      </form>
+        <input className="sr-only" placeholder="Search..." />
+      </div>
 
       <div className="flex items-center justify-end">
         <Link

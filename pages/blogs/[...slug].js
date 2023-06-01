@@ -5,7 +5,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import { BlogContext } from "@/context/BlogContext";
+import { BlogContext } from "@/hook/BlogContext";
 
 export default function Blog() {
   const { blogsData } = useContext(BlogContext);
